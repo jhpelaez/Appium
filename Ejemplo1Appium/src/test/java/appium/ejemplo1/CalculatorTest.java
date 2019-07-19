@@ -20,6 +20,8 @@ public class CalculatorTest {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+		
+		
 	}
 	
 	public static void openCalculator() throws MalformedURLException {
