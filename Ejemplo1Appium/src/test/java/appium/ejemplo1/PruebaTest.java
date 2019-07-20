@@ -49,17 +49,17 @@ public class PruebaTest {
 		
 		System.out.println("Application Started...");
 		
-//		driver.findElement(By.id("digit_5")).click();
-//		driver.findElement(By.id("digit_1")).click();
-//		driver.findElement(By.id("op_add")).click();
-//		driver.findElement(By.id("digit_4")).click();
-//		driver.findElement(By.id("eq")).click();
-//		
-//		String result = driver.findElement(By.id("result")).getText();
-//		if ("55".equals(result))
-//			System.out.println("PASSED");
-//		else
-//			System.out.println("FAILED");
+		driver.findElement(By.id("digit_5")).click();
+		driver.findElement(By.id("digit_1")).click();
+		driver.findElement(By.id("op_add")).click();
+		driver.findElement(By.id("digit_4")).click();
+		driver.findElement(By.id("eq")).click();
+		
+		String result = driver.findElement(By.id("result")).getText();
+		if ("55".equals(result))
+			System.out.println("PASSED");
+		else
+			System.out.println("FAILED");
 		
 		
 		
