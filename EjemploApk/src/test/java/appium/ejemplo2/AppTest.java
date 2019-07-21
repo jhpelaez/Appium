@@ -57,30 +57,10 @@ public class AppTest {
     	driver.findElement(enviarOtpButton).click();
     	
     	driver.findElement(abrirListaDeProductos).click();
-    	System.out.println("antes de las tarjetas");
     	List<WebElement> listaDeTarjetas = driver.findElements(tarjetasSelect);
     	listaDeTarjetas.get(1).click();
-    	System.out.println("despues de las tarjetas");
     	driver.findElement(seleccionarButton).click();
     	
-    	
-    	
-    	
-//    	System.out.println("Application Started...");
-//    	
-//    	driver.findElementById("com.example.myapplication:id/editText").sendKeys("30727345");
-//    	driver.findElementById("com.example.myapplication:id/button").click();
-//    	
-//    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//    	driver.findElementById("com.example.myapplication:id/ingresa_otp").sendKeys("9511");
-//    	driver.findElementById("com.example.myapplication:id/button_validar_otpp").click();
-//    	
-//    	driver.findElementById("com.example.myapplication:id/spinner_product_type").click();
-//    	List<WebElement> tarjetas = driver.findElementsByClassName("android.widget.CheckedTextView");
-//    	tarjetas.get(1).click();
-//    	driver.findElementById("com.example.myapplication:id/select_button").click();
-//    	
-//    	driver.switchTo().frame(driver.findElementByClassName("android.view.ViewGroup"));
     }
     
     public void esperar(WebElement elemento) {
