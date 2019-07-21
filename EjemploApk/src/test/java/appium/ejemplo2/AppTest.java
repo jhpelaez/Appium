@@ -1,14 +1,11 @@
 package appium.ejemplo2;
 
-import static org.junit.Assert.assertTrue;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,15 +14,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
 	
-	static AppiumDriver<WebElement> driver;
+	private static AppiumDriver<WebElement> driver;
+	
+	private By numeroCedulaField = By.id("editText");
+	private By numeroOtpField = By.id("ingresa_otp");
+	private By generarWidgetButton = By.id("button");
+	private By enviarOtpButton = By.id("button_validar_otpp");
+	private By seleccionarButton = By.id("select_button");
+	private By abrirListaDeProductos = By.id("spinner_product_type");
+	private By tarjetasSelect = By.className("android.widget.CheckedTextView");
 	
 	@Before
 	public void setUp() throws MalformedURLException {
@@ -46,21 +49,38 @@ public class AppTest {
     public void simpleTest() {
     	System.out.println("Application Started...");
     	
-    	driver.findElementById("com.example.myapplication:id/editText").sendKeys("30727345");
-    	driver.findElementById("com.example.myapplication:id/button").click();
+    	driver.findElement(numeroCedulaField).sendKeys("30727345");
+    	driver.findElement(generarWidgetButton).click();
     	
     	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    	driver.findElementById("com.example.myapplication:id/ingresa_otp").sendKeys("9511");
-    	driver.findElementById("com.example.myapplication:id/button_validar_otpp").click();
+    	driver.findElement(numeroOtpField).sendKeys("9511");
+    	driver.findElement(enviarOtpButton).click();
     	
-    	driver.findElementById("com.example.myapplication:id/spinner_product_type").click();
-    	List<WebElement> tarjetas = driver.findElementsByClassName("android.widget.CheckedTextView");
-    	tarjetas.get(1).click();
-    	driver.findElementById("com.example.myapplication:id/select_button").click();
+    	driver.findElement(abrirListaDeProductos).click();
+    	System.out.println("antes de las tarjetas");
+    	List<WebElement> listaDeTarjetas = driver.findElements(tarjetasSelect);
+    	listaDeTarjetas.get(1).click();
+    	System.out.println("despues de las tarjetas");
+    	driver.findElement(seleccionarButton).click();
     	
-    	driver.switchTo().frame(driver.findElementByClassName("android.view.ViewGroup"));
     	
-//        assertTrue( true );
+    	
+    	
+//    	System.out.println("Application Started...");
+//    	
+//    	driver.findElementById("com.example.myapplication:id/editText").sendKeys("30727345");
+//    	driver.findElementById("com.example.myapplication:id/button").click();
+//    	
+//    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//    	driver.findElementById("com.example.myapplication:id/ingresa_otp").sendKeys("9511");
+//    	driver.findElementById("com.example.myapplication:id/button_validar_otpp").click();
+//    	
+//    	driver.findElementById("com.example.myapplication:id/spinner_product_type").click();
+//    	List<WebElement> tarjetas = driver.findElementsByClassName("android.widget.CheckedTextView");
+//    	tarjetas.get(1).click();
+//    	driver.findElementById("com.example.myapplication:id/select_button").click();
+//    	
+//    	driver.switchTo().frame(driver.findElementByClassName("android.view.ViewGroup"));
     }
     
     public void esperar(WebElement elemento) {
